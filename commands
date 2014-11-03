@@ -1,0 +1,8 @@
+Get Metadata for all MP4 files in a directory
+$ for i in *.mp4; do ffprobe $i; done
+
+Copy all .jpg files under "directory" tree to current directory
+$ find ~/directory -name '*.jpg' -exec cp '{}' ./ \;
+
+Make a video from an Audio File + Image
+$ ffmpeg -shortest -loop 1 -i image.png -i audio.mp3 -acodec libvo_aacenc -vcodec libx264 video.mp4
