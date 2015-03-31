@@ -1,11 +1,19 @@
 Get Metadata for all MP4 files in a directory
-$ for i in *.mp4; do ffprobe $i; done
+  $ for i in *.mp4; do ffprobe $i; done
 
 Copy all .jpg files under "directory" tree to current directory
-$ find ~/directory -name '*.jpg' -exec cp '{}' ./ \;
+  $ find ~/directory -name '*.jpg' -exec cp '{}' ./ \;
 
 Make a video from an Audio File + Image
-$ ffmpeg -shortest -loop 1 -i image.png -i audio.mp3 -acodec libvo_aacenc -vcodec libx264 video.mp4
+  $ ffmpeg -shortest -loop 1 -i image.png -i audio.mp3 -acodec libvo_aacenc -vcodec libx264 video.mp4
 
 Count all instances of each file type
-$ ls | awk -F . '{print $NF}' | sort | uniq -c | awk '{print $2,$1}'
+  $ ls | awk -F . '{print $NF}' | sort | uniq -c | awk '{print $2,$1}'
+
+Create a new Table in Postgres
+  CREATE TABLE renditions
+  (REFID varchar, VIDEOID varchar, TITLE varchar, 
+  BITRATE int, WIDTH int, HEIGHT int, VCODEC varchar, CONTAINER varchar, AUDIO boolean, SIZE varchar);
+
+Copy Data from CSV:
+  COPY renditions FROM '/path/to/csv/ZIP_CODES.txt' DELIMITER ',' CSV;
