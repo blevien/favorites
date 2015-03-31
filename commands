@@ -16,4 +16,4 @@ Create a new Table in Postgres
   BITRATE int, WIDTH int, HEIGHT int, VCODEC varchar, CONTAINER varchar, AUDIO boolean, SIZE varchar);
 
 Copy Data from CSV:
-  COPY renditions FROM '/path/to/csv/ZIP_CODES.txt' DELIMITER ',' CSV;
+  COPY renditions FROM '/path/to/csv.txt' DELIMITER ',' CSV;
